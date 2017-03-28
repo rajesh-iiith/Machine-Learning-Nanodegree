@@ -16154,7 +16154,7 @@ QmCC
 <ul>
 <li>Optimal Policy: <ul>
 <li>if (red light)<ul>
-<li>if (waypoint is right)
+<li>if (waypoint is right AND left_input is not 'forward')
 <pre><code>- go to right</code></pre>
 </li>
 <li>else
@@ -16177,7 +16177,7 @@ QmCC
 -- None : 2.08
 -- left : -10.35</li>
 </ul>
-<p>Here light is red and and waypoint is right, so the cab can safely turn right. But it takes no action because, None has highest value. So the policy is sub-optimal.</p>
+<p>Here light is red and and waypoint is right and left input is not 'forward', so the cab can safely turn right. But it takes no action because, None has highest value. So the policy is sub-optimal.</p>
 </li>
 <li><p>Example: Expected states</p>
 <ul>
