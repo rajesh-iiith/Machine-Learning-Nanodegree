@@ -46,6 +46,18 @@ Like any other n-class image classification problem, the metric of central impor
 
 _Accuracy = ( Number of test samples correctly classified / Total number of test samples ) * 100 _
 
+Please note that we have defined the metric accuracy for the test set (not for validation set and obviously not for train set). This is because, as we tain our model, we tend to use the outcomes of the vaidation set to make our model better. This leads to an indirect bleeding of validation data into training set. So, validation set accuracy should not be used as the final metric to judge how good our model is. For this purpose, we keep a separate isolated test set for final evaluation. 
+To put it simply,
+* Training set  is used to fit the parameters [i.e., weights]
+* Validation set is used to tune the parameters [i.e., architecture]
+* Test set is used to assess the performance [i.e., generalization and predictive power] 
+
+
+_Accuracy_ (fomula defined above) is the most relevent metric for us because, it tells us how accurately the model performs on the unseen data. i.e. how many percentage of test samples are recognized correctly. For example, Lets say, while the autonomous vehicle is driving on a road for an hour and it encountered 100 traffic signs. And it predicted 90 out of these 100 signs correctly. Then its accuracy is 90%. The model should hence focus on increasing this metric to make sure less traffic violations are made.
+
+Other metric which could be of importance is the training time. But this is not super critical since, training is a one time effort. Once the model is deployed, it is accuracy which matters (predictions are typically superfast because they are just one round of mathematical calculations based on already learned parameters.)
+
+
 ## II. Analysis
 
 ### Data Exploration
