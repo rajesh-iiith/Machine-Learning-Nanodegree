@@ -4,7 +4,7 @@ Rajesh Kumar
 March 29th, 2017
 
 
-Link to my [project code](https://github.com/rajesh-iiith/SelfDrivingCarNanodegree/blob/master/CarND-Traffic-Sign-Classifier-P2/Traffic_Sign_Classifier.ipynb)
+Link to my [project code](https://github.com/rajesh-iiith/Machine-Learning-Nanodegree/blob/master/Project-5/Traffic_Sign_Classifier.ipynb)
 
 
 [//]: # (Image References)
