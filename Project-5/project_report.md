@@ -109,7 +109,7 @@ ClassId | SignName
 Some examples from the dataset are given below. These labels can be verified using the above table.
 ![alt text][image_signs]
 
-The following histogram shows the count of training examples for all the 43 classes present in the dataset. This is to get an intuition of over-representation / under-representation of a given class. It is important to make sure that the dataset is not bised towards a few classes. As we can see in the histogram, many classes have far less number of samples than mean number of samples. This should be handled before working with the data to avoid any bias. 
+The following histogram shows the count of training examples for all the 43 classes present in the dataset. This is to get an intuition of over-representation / under-representation of a given class. It is important to make sure that the dataset is not biased towards a few classes. As we can see in the histogram, many classes have far less number of samples than mean number of samples. This should be handled before working with the data to avoid any bias. 
 ![alt text][image_freq_hist]
 
 
@@ -188,7 +188,7 @@ The traffic sign images are typically composed of basic geometrical shapes, and 
 
 I have used two convolutional layers followed by three fully connected layers, where the length of output of last layer equals to the number of classes. It is inspired from LENET architecture [9]. It is well known that LENET architecure works well for images in MNIST data set [8].
 
-For both the convolutional layers, the convolution is followed by ReLU (for adding non-Linearlity in the network in a simple way). ReLU is followed by dropout and maxpool.
+For both the convolutional layers, the convolution is followed by ReLU (for adding non-linearity in the network in a simple way). ReLU is followed by dropout and maxpool.
 
 To sensibly reduce the spatial extent of feature map of the convolutional pyramid, rather than using stride of size two (which is aggressive), using 2x2 maxpooling is less agressive and preserves more info than aggresive striding. 
 
@@ -254,7 +254,7 @@ I first evaluated the performance of the model on validation set. Validation acc
 
 Testing the same model on test set gives an accuracy of 93.2% which I think is pretty impressive. 
 
-#### Testing with new images and challanges involved
+#### Testing with new images and challenges involved
 Apart from this test set, I downloaded 5 random traffic sign images from the [web](https://www.google.com/imghp) and analyzed the performance of our model on these images.
 
 Here are the images I got.
@@ -281,7 +281,7 @@ The model was able to correctly guess 5 of the 5 traffic signs, which gives an a
 
 
 #### Comparison with test set prediction accuracy
-If we compare this accuracy (100%) to with the test set accuracy (93.2 %), it seems to be performing better on newly acquired images. This might be due to the fact that number of images in the newly acquired image set is very low (only 5). Also, the model might be good at performing classification for these kind of images due to unknown factors such as adequate avilability of similar images in the training set. In spite of 100% accuracy on new images, I doubt that the model is overfitting to some extent, because test set accuracy is lower than the validation set accuracy.  
+If we compare this accuracy (100%) to with the test set accuracy (93.2 %), it seems to be performing better on newly acquired images. This might be due to the fact that number of images in the newly acquired image set is very low (only 5). Also, the model might be good at performing classification for these kind of images due to unknown factors such as adequate availability of similar images in the training set. In spite of 100% accuracy on new images, I doubt that the model is overfitting to some extent, because test set accuracy is lower than the validation set accuracy.  
 
 
 ### Comparison against the benchmark
@@ -314,14 +314,14 @@ For 'Speed limit (30km/h)' image it confuses it with Speed limit (20km/h) and Sp
 
 Implementation Summary
 
-* We started with the realization that few classes are suffering from under-representation. We augmentated synthetic data in the dataset to solve this.
+* We started with the realization that few classes are suffering from under-representation. We augmented synthetic data in the dataset to solve this.
 * To reduce the size of the feature vector, we used grayscaling. 
 * To make the problem well-conditioned (to reduce optimizer's work), we normalized the inputs.
-* We took inspiration from basic LENET implentation and started building upon it. We used two convolutional layers followed by three fully connected layers, where the length of output of last layer equals to the number of classes. 
+* We took inspiration from basic LENET implementation and started building upon it. We used two convolutional layers followed by three fully connected layers, where the length of output of last layer equals to the number of classes. 
 * We added ReLU units for introducing non-Linearlity in the network.
 * To sensibly reduce the spatial extent of feature map of the convolutional pyramid, we used maxpooling.
 * We used dropout for preventing overfitting.
-* We expermented with different parameters, specially learning rate and batch size.
+* We experimented with different parameters, specially learning rate and batch size.
 * We tested our model on validation set, test set and unseen image data.
 
 What I found interesting
@@ -332,12 +332,12 @@ What I found interesting
 What I found difficult
 
 * Training was very slow on my laptop. It used to take me 13 minutes on average to train the model. I decided to use GPU version of tensorflow. For this I setup Nvidia GTX 680 on a desktop system. This reduced the training time to 1.5 minutes.
-* I wasted a lot of time in tuning paramters, and got stuck at a point where I was not seeing any improvement.  It took me a while to figure out that simple techniques like dropout and augmentation work well.
+* I wasted a lot of time in tuning parameters, and got stuck at a point where I was not seeing any improvement.  It took me a while to figure out that simple techniques like dropout and augmentation work well.
  
 
 ### Potential Improvements
 
-* As seen in benchmarks section of this report, people have acheived better results with a committee of CNNs or multi scale CNNs. Though difficult to implement and tune, it is worth giving a try. Committee of CNNs might be useful in eliminating the doubt (less softmax probability) that one CNN might have. Different CNNs can be trained from different perspectives (shape, color, brightness etc.) and the majority vote can be taken to finally decide what the most likely solution is.
+* As seen in benchmarks section of this report, people have achieved better results with a committee of CNNs or multi scale CNNs. Though difficult to implement and tune, it is worth giving a try. Committee of CNNs might be useful in eliminating the doubt (less softmax probability) that one CNN might have. Different CNNs can be trained from different perspectives (shape, color, brightness etc.) and the majority vote can be taken to finally decide what the most likely solution is.
 
 ### References
 [1] http://benchmark.ini.rub.de/
